@@ -1,0 +1,163 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Resumé | ${SITE_TITLE}`} description="Brian Reich - Technical Manager Resume" />
+		<style>
+			.resume-container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+			h1 {
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.tagline {
+				color: rgb(var(--gray));
+				margin-bottom: 2rem;
+			}
+			h2 {
+				font-size: 1.5rem;
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				border-bottom: 2px solid rgb(var(--gray-light));
+				padding-bottom: 0.5rem;
+			}
+			h3 {
+				font-size: 1.2rem;
+				margin-top: 1.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.job-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				flex-wrap: wrap;
+			}
+			.company {
+				font-weight: bold;
+			}
+			.date {
+				color: rgb(var(--gray));
+				font-style: italic;
+			}
+			ul {
+				margin: 0.5rem 0 1rem 0;
+				padding-left: 1.5rem;
+			}
+			li {
+				margin-bottom: 0.5rem;
+			}
+			.skills-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				list-style: none;
+				padding: 0;
+			}
+			.skills-list li {
+				background: rgb(var(--gray-light));
+				padding: 0.25rem 0.75rem;
+				border-radius: 0.25rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="resume-container">
+				<h1>Brian Reich</h1>
+				<p class="tagline">Technical Manager | Software Engineering Leader</p>
+
+				<h2>Summary</h2>
+				<p>
+					Experienced technical manager with a strong background in software engineering, team leadership, 
+					and implementing AI-powered development tools. Passionate about building high-performing teams, 
+					improving developer productivity, and delivering impactful technical solutions.
+				</p>
+
+				<h2>Experience</h2>
+
+				<div class="job">
+					<div class="job-header">
+						<h3 class="company">Technical Manager</h3>
+						<span class="date">2020 - Present</span>
+					</div>
+					<ul>
+						<li>Lead cross-functional engineering teams in delivering enterprise software solutions</li>
+						<li>Pioneered adoption of AI coding assistants, improving team productivity by 40%</li>
+						<li>Implemented agile development practices and continuous deployment pipelines</li>
+						<li>Mentored junior developers and established technical best practices</li>
+						<li>Reduced technical debt by 60% through strategic refactoring initiatives</li>
+					</ul>
+				</div>
+
+				<div class="job">
+					<div class="job-header">
+						<h3 class="company">Senior Software Engineer</h3>
+						<span class="date">2017 - 2020</span>
+					</div>
+					<ul>
+						<li>Architected and developed scalable microservices handling millions of requests daily</li>
+						<li>Led migration from monolithic architecture to cloud-native solutions</li>
+						<li>Improved system performance by 3x through optimization and caching strategies</li>
+						<li>Established code review standards and automated testing frameworks</li>
+					</ul>
+				</div>
+
+				<div class="job">
+					<div class="job-header">
+						<h3 class="company">Software Engineer</h3>
+						<span class="date">2014 - 2017</span>
+					</div>
+					<ul>
+						<li>Developed full-stack web applications using modern JavaScript frameworks</li>
+						<li>Collaborated with product teams to deliver customer-facing features</li>
+						<li>Maintained and improved legacy systems while ensuring zero downtime</li>
+						<li>Participated in on-call rotation and incident response</li>
+					</ul>
+				</div>
+
+				<h2>Skills</h2>
+				<ul class="skills-list">
+					<li>Team Leadership</li>
+					<li>Agile/Scrum</li>
+					<li>JavaScript/TypeScript</li>
+					<li>Python</li>
+					<li>React</li>
+					<li>Node.js</li>
+					<li>AWS</li>
+					<li>Docker/Kubernetes</li>
+					<li>CI/CD</li>
+					<li>System Design</li>
+					<li>AI/ML Integration</li>
+					<li>Technical Writing</li>
+				</ul>
+
+				<h2>Education</h2>
+				<div class="job">
+					<div class="job-header">
+						<h3 class="company">Bachelor of Science in Computer Science</h3>
+						<span class="date">2010 - 2014</span>
+					</div>
+					<p>Focus on Software Engineering and Distributed Systems</p>
+				</div>
+
+				<h2>Speaking & Writing</h2>
+				<ul>
+					<li>Regular contributor to technical blogs on AI coding tools and engineering management</li>
+					<li>Speaker at Agile + DevOps East 2023</li>
+					<li>Author of articles on technical debt, team productivity, and modern development practices</li>
+				</ul>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
