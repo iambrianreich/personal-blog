@@ -22,7 +22,7 @@ At a high level, this is what I took away from Agile + DevOps East 2023
 
 - The software industry is losing it's religion when it comes to agile.
 
-- We still care about the foundations of [agile](/agile/). Those things the [manifesto](https://agilemanifesto.org/) sought to correct. But people are tired of the systems, and the rigidity. Agile is in it's reformation.
+- We still care about the foundations of agile. Those things the [manifesto](https://agilemanifesto.org/) sought to correct. But people are tired of the systems, and the rigidity. Agile is in its reformation.
 
 - The industry has long-since moved on to DevOps and Continuous integration. Which to me looks a lot like "agility in practice."
 

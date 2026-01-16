@@ -64,3 +64,50 @@ draft: boolean (default: false)
 ```
 
 Images for posts go in `src/assets/images/blog/[post-slug]/`.
+
+## Quality Checks
+
+Run these checks after making changes to verify site quality.
+
+### Build & Type Safety
+
+```bash
+npm run build              # Verify clean build with no errors
+npx astro check            # TypeScript and Astro component validation
+```
+
+### Link Checking
+
+```bash
+npm run build && npm run preview &   # Start preview server
+npx linkinator http://localhost:4321 --recurse --timeout 10000
+```
+
+Checks for broken internal links, missing images, and validates all URLs.
+
+### RSS & Sitemap Validation
+
+```bash
+curl -s http://localhost:4321/rss.xml | head -20      # Check RSS structure
+curl -s http://localhost:4321/sitemap-index.xml      # Check sitemap
+```
+
+### JSON-LD Structured Data
+
+```bash
+curl -s http://localhost:4321/ | grep -o '<script type="application/ld+json">.*</script>' | sed 's/<[^>]*>//g' | jq .
+```
+
+Verify structured data is valid JSON with correct schema.org types.
+
+### Lighthouse Audit
+
+```bash
+npx lighthouse http://localhost:4321 --output=json --only-categories=accessibility,performance,best-practices,seo --chrome-flags="--headless --no-sandbox" | jq '.categories | to_entries[] | "\(.key): \(.value.score * 100)%"'
+```
+
+Target scores: Performance 90%+, Accessibility 90%+, Best Practices 90%+, SEO 90%+
+
+### Known Issues
+
+- **Accessibility (90%)**: Minor color contrast and link distinguishability issues in `.prose` content styling
