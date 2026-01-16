@@ -1,163 +1,263 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import PageLayout from '../layouts/PageLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Resumé | ${SITE_TITLE}`} description="Brian Reich - Technical Manager Resume" />
-		<style>
-			.resume-container {
-				max-width: 800px;
-				margin: 0 auto;
-				padding: 2rem;
-			}
-			h1 {
-				font-size: 2.5rem;
-				margin-bottom: 0.5rem;
-			}
-			.tagline {
-				color: rgb(var(--gray));
-				margin-bottom: 2rem;
-			}
-			h2 {
-				font-size: 1.5rem;
-				margin-top: 2rem;
-				margin-bottom: 1rem;
-				border-bottom: 2px solid rgb(var(--gray-light));
-				padding-bottom: 0.5rem;
-			}
-			h3 {
-				font-size: 1.2rem;
-				margin-top: 1.5rem;
-				margin-bottom: 0.5rem;
-			}
-			.job-header {
-				display: flex;
-				justify-content: space-between;
-				align-items: baseline;
-				flex-wrap: wrap;
-			}
-			.company {
-				font-weight: bold;
-			}
-			.date {
-				color: rgb(var(--gray));
-				font-style: italic;
-			}
-			ul {
-				margin: 0.5rem 0 1rem 0;
-				padding-left: 1.5rem;
-			}
-			li {
-				margin-bottom: 0.5rem;
-			}
-			.skills-list {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5rem;
-				list-style: none;
-				padding: 0;
-			}
-			.skills-list li {
-				background: rgb(var(--gray-light));
-				padding: 0.25rem 0.75rem;
-				border-radius: 0.25rem;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<div class="resume-container">
-				<h1>Brian Reich</h1>
-				<p class="tagline">Technical Manager | Software Engineering Leader</p>
+<PageLayout
+  title="Resumé"
+  description="Brian Reich's professional resume - Director of Technology with experience in software development, team leadership, and engineering management."
+>
+  <JsonLd
+    type="Person"
+    data={{
+      name: 'Brian Reich',
+      jobTitle: 'Director of Technology',
+      url: 'https://brianreich.dev',
+      email: 'brian@brianreich.dev',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '1902 North Hill Drive',
+        addressLocality: 'Winfield',
+        addressRegion: 'PA',
+        postalCode: '17889',
+        addressCountry: 'US',
+      },
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Bloomsburg University',
+      },
+    }}
+  />
 
-				<h2>Summary</h2>
-				<p>
-					Experienced technical manager with a strong background in software engineering, team leadership, 
-					and implementing AI-powered development tools. Passionate about building high-performing teams, 
-					improving developer productivity, and delivering impactful technical solutions.
-				</p>
+  <div class="resume prose">
+    <section class="intro">
+      <p>
+        Hi! I'm Brian Reich. First things first: thanks for taking the time to review my resumé.
+        Out of all the AI slop that crosses your screen today, I hope this unique, hand-crafted
+        and fully human-generated slop stands out from the rest.
+      </p>
+      <p>
+        At my core I am a problem solver. I fell in love with programming, and the web, early in life.
+        At this stage in my career, I've learned to focus on values and less on tools and languages.
+      </p>
+      <p>
+        I value consistency, quality, speed, autonomy, and creativity. I'm at my best in an organization
+        that understands those values are not in conflict. I believe teams should self-organize, communicate,
+        and adopt a process that works for <em>them</em>. Today, I think that process usually looks a lot like
+        Continuous Delivery, XP, and the practices found in shops that practice them. I value simplicity,
+        testing, iteration, and understanding and adapting my approach to software to fit within the business context.
+      </p>
+      <p>
+        I've spent the last 6 years of my career growing from IC to leadership. I've managed a legacy SaaS project.
+        I've balanced modernization with business needs. I've led a massive security remediation effort. I knocked
+        down the silos within our organization to build features based on stakeholder input, versus speculative
+        features our customers won't use. I supported and mentored my team. I aggressively cut cloud costs by about 40%.
+      </p>
+    </section>
 
-				<h2>Experience</h2>
+    <section class="contact-info">
+      <p>
+        <strong>Brian Reich</strong><br />
+        Technical Director & Senior Web Developer<br />
+        1902 North Hill Drive, Winfield, PA 17889<br />
+        <a href="mailto:brian@brianreich.dev">brian@brianreich.dev</a><br />
+        (570) 939-7322
+      </p>
+    </section>
 
-				<div class="job">
-					<div class="job-header">
-						<h3 class="company">Technical Manager</h3>
-						<span class="date">2020 - Present</span>
-					</div>
-					<ul>
-						<li>Lead cross-functional engineering teams in delivering enterprise software solutions</li>
-						<li>Pioneered adoption of AI coding assistants, improving team productivity by 40%</li>
-						<li>Implemented agile development practices and continuous deployment pipelines</li>
-						<li>Mentored junior developers and established technical best practices</li>
-						<li>Reduced technical debt by 60% through strategic refactoring initiatives</li>
-					</ul>
-				</div>
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-column">
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Technical Management</li>
+            <li>Managing up and down the org chart</li>
+            <li>Coaching & Mentoring</li>
+            <li>Breaking down organizational silos</li>
+            <li>Hiring, onboarding, and offboarding</li>
+            <li>Building alignment</li>
+            <li>Documentation, policies, and procedures</li>
+            <li>XP and Continuous Delivery Methodologies</li>
+          </ul>
+        </div>
+        <div class="skill-column">
+          <h3>Technical Skills</h3>
+          <ul>
+            <li>Git, GitHub, GitHub Actions</li>
+            <li>CI/CD pipelines</li>
+            <li>Unit Testing & E2E testing</li>
+            <li>Secure Coding Practices</li>
+            <li>AWS Cloud Infrastructure</li>
+            <li>Modern PHP (8+)</li>
+            <li>Legacy Archaeology/Modernization</li>
+            <li>HTML, CSS, JavaScript, Web Components</li>
+            <li>JS Frameworks (React, Angular)</li>
+            <li>SQL (MySQL, MS SQL)</li>
+            <li>Windows, Linux, FreeBSD</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-				<div class="job">
-					<div class="job-header">
-						<h3 class="company">Senior Software Engineer</h3>
-						<span class="date">2017 - 2020</span>
-					</div>
-					<ul>
-						<li>Architected and developed scalable microservices handling millions of requests daily</li>
-						<li>Led migration from monolithic architecture to cloud-native solutions</li>
-						<li>Improved system performance by 3x through optimization and caching strategies</li>
-						<li>Established code review standards and automated testing frameworks</li>
-					</ul>
-				</div>
+    <section class="experience">
+      <h2>Experience</h2>
 
-				<div class="job">
-					<div class="job-header">
-						<h3 class="company">Software Engineer</h3>
-						<span class="date">2014 - 2017</span>
-					</div>
-					<ul>
-						<li>Developed full-stack web applications using modern JavaScript frameworks</li>
-						<li>Collaborated with product teams to deliver customer-facing features</li>
-						<li>Maintained and improved legacy systems while ensuring zero downtime</li>
-						<li>Participated in on-call rotation and incident response</li>
-					</ul>
-				</div>
+      <article class="job">
+        <h3>CORE Business Solutions — Director of Technology</h3>
+        <p class="job-dates">September 2024 – Present</p>
+        <ul>
+          <li>Incorporated company IT responsibilities when our IT Administrator left. Performed all IT tasks, hired, and managed a replacement. Managed 50+ employee accounts and devices across Microsoft 365, SentinelOne, and N-Central</li>
+          <li>Implemented IT Helpdesk system, 100% of issues now reported and completed through Jira</li>
+          <li>Take over responsibility for ISO 27001 implementation, successfully completed 2024 audit with zero findings</li>
+          <li>Lead security remediation project of cloud infrastructure and 1.5 million lines of legacy code and 1,500 discovered vulnerabilities</li>
+          <li>Oversee Infrastructure as Code transition (Ansible, Terraform), leading to 0 downtime due to "cowboy IT" changes</li>
+          <li>Saved another product team from extinction by rearchitecting their cloud product's architecture to comply with CMMC</li>
+        </ul>
+      </article>
 
-				<h2>Skills</h2>
-				<ul class="skills-list">
-					<li>Team Leadership</li>
-					<li>Agile/Scrum</li>
-					<li>JavaScript/TypeScript</li>
-					<li>Python</li>
-					<li>React</li>
-					<li>Node.js</li>
-					<li>AWS</li>
-					<li>Docker/Kubernetes</li>
-					<li>CI/CD</li>
-					<li>System Design</li>
-					<li>AI/ML Integration</li>
-					<li>Technical Writing</li>
-				</ul>
+      <article class="job">
+        <h3>CORE Business Solutions — Director of Software</h3>
+        <p class="job-dates">July 2024 – September 2024</p>
+        <ul>
+          <li>Rearchitecture of cloud infrastructure to improve security, simplify permissions, implement SSO, and reduce cloud costs by 40%</li>
+          <li>Given technical oversight of Software Development and DevOps</li>
+          <li>Added to Senior Leadership of the organization</li>
+          <li>Support technical aspects of company acquisition including penetration test; wrote remediation plan which contributed to the successful sale</li>
+          <li>Improved release cadence from "bi-weekly" to "when it's ready", often a few times a day</li>
+        </ul>
+      </article>
 
-				<h2>Education</h2>
-				<div class="job">
-					<div class="job-header">
-						<h3 class="company">Bachelor of Science in Computer Science</h3>
-						<span class="date">2010 - 2014</span>
-					</div>
-					<p>Focus on Software Engineering and Distributed Systems</p>
-				</div>
+      <article class="job">
+        <h3>CORE Business Solutions — Software Development Manager</h3>
+        <p class="job-dates">March 2022 – July 2024</p>
+        <ul>
+          <li>Manage team of 9 (6 developers, 1 analyst, 1 QA tester, 1 product manager)</li>
+          <li>Responsible for all stages of SDLC</li>
+          <li>Expansion of the software team, hiring and managing all members</li>
+          <li>Drive ongoing agile software development initiatives based on XP and Continuous Delivery including E2E testing using Cypress, CI/CD using GitHub Actions</li>
+          <li>Improve release cadence from once every few months to a reliable two-week cycle</li>
+          <li>Facilitated development of design system in Figma, and new component implementation using Web Components</li>
+          <li>Worked with IT to successfully migrate our SaaS application to AWS GovCloud</li>
+        </ul>
+      </article>
 
-				<h2>Speaking & Writing</h2>
-				<ul>
-					<li>Regular contributor to technical blogs on AI coding tools and engineering management</li>
-					<li>Speaker at Agile + DevOps East 2023</li>
-					<li>Author of articles on technical debt, team productivity, and modern development practices</li>
-				</ul>
-			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
+      <article class="job">
+        <h3>CORE Business Solutions — Software Development Lead</h3>
+        <p class="job-dates">December 2019 – March 2022</p>
+        <ul>
+          <li>Responsible for hiring and onboarding additional developers</li>
+          <li>Development of processes and procedures to support attainment of ISO 9001 and 27001 certification</li>
+          <li>Plan and implementation of updated software development practices (coding, documentation, security standards, unit testing)</li>
+          <li>Spearheaded development of reusable component library (in vanilla JS)</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>CORE Business Solutions — Senior Application Developer</h3>
+        <p class="job-dates">July 2019 – December 2019</p>
+        <ul>
+          <li>Maintain and enhance code written in Perl, PHP 4, and vanilla frontend</li>
+          <li>Implemented version control and virtualized dev environments</li>
+          <li>Upgrade PHP code from 4 to 7</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Reich Web Consulting — Freelance Web Developer</h3>
+        <p class="job-dates">June 2014 – July 2019</p>
+        <ul>
+          <li>Specialized in custom development</li>
+          <li>Retainer with Catalyst Fabric Solutions in Marianna, FL</li>
+          <li>Developed print on demand API, manufacturing process automation, and frontends using Asp.Net, C#, PHP, and Angular</li>
+          <li>Processed millions of dollars in print on demand jobs via API. Generated job tickets, shipping labels using UPS, FedEx, and Endicia APIs</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <article>
+        <h3>Bloomsburg University, Bloomsburg, PA — BS Computer Science</h3>
+        <p class="job-dates">September 2002 – May 2006</p>
+        <p>
+          Bloomsburg's program was very practical. I was exposed to many programming languages including
+          C, C++, x86 Assembly, and SQL. We leaned deep into Java, which shaped my personal coding style.
+          As a result I love OOP, have a deep fondness for design patterns, prefer composition over inheritance,
+          and embrace the concepts of clean code and clean engineering.
+        </p>
+      </article>
+    </section>
+  </div>
+</PageLayout>
+
+<style>
+  .resume {
+    max-width: var(--content-max);
+  }
+
+  .resume section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .contact-info {
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-alt);
+    border-radius: 8px;
+  }
+
+  .contact-info p {
+    margin: 0;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  @media (min-width: 640px) {
+    .skills-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .skill-column h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+  }
+
+  .skill-column ul {
+    margin: 0;
+    padding-left: var(--spacing-lg);
+  }
+
+  .skill-column li {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .job {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .job h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+  }
+
+  .job-dates {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin: 0 0 var(--spacing-sm);
+    font-style: italic;
+  }
+
+  .job ul {
+    margin: 0;
+    padding-left: var(--spacing-lg);
+  }
+
+  .job li {
+    margin-bottom: var(--spacing-xs);
+  }
+</style>

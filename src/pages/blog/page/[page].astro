@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import Pagination from '../../../components/Pagination.astro';
+
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 10;
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+  const sortedPosts = allPosts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: String(i + 1) },
+    props: {
+      page: i + 1,
+      posts: sortedPosts.slice(i * POSTS_PER_PAGE, (i + 1) * POSTS_PER_PAGE),
+      totalPages,
+    },
+  }));
+}
+
+const { page, posts, totalPages } = Astro.props;
+---
+
+<BaseLayout
+  title={`Blog - Page ${page}`}
+  description="Brian Reich's blog about technical management, software development, AI-assisted coding, and recovering from being an individual contributor."
+>
+  <div class="blog-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>Blog</h1>
+        <p class="page-subtitle">Page {page} of {totalPages}</p>
+      </header>
+      <section class="posts">
+        {posts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            heroImage={post.data.heroImage}
+            heroImageAlt={post.data.heroImageAlt}
+            category={post.data.category}
+            slug={post.slug}
+          />
+        ))}
+      </section>
+      <Pagination currentPage={page} totalPages={totalPages} />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-page {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .page-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .page-subtitle {
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .posts {
+    max-width: var(--content-max);
+  }
+</style>

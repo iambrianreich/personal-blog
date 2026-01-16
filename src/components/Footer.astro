@@ -1,28 +1,54 @@
 ---
-const today = new Date();
+const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} Brian Reich. All rights reserved.
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="copyright">
+      &copy; {currentYear} Brian Reich. All rights reserved.
+    </p>
+    <p class="built-with">
+      Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+    </p>
+  </div>
 </footer>
+
 <style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
-	}
-	.social-links {
-		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
-	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--gray-dark));
-	}
+  .footer {
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .copyright,
+  .built-with {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .built-with a {
+    color: var(--color-accent);
+  }
+
+  .built-with a:hover {
+    color: var(--color-accent-dark);
+  }
 </style>

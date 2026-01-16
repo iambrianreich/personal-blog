@@ -1,0 +1,41 @@
+---
+import { getCategoryLabel } from '../utils/slugify';
+
+interface Props {
+  category: string;
+  linked?: boolean;
+}
+
+const { category, linked = false } = Astro.props;
+const label = getCategoryLabel(category);
+---
+
+{linked ? (
+  <a href={`/category/${category}`} class="badge">
+    {label}
+  </a>
+) : (
+  <span class="badge">
+    {label}
+  </span>
+)}
+
+<style>
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    background-color: rgba(219, 0, 66, 0.1);
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  a.badge:hover {
+    background-color: rgba(219, 0, 66, 0.2);
+  }
+</style>

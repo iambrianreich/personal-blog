@@ -1,0 +1,108 @@
+---
+import { Image } from 'astro:assets';
+import CategoryBadge from './CategoryBadge.astro';
+import { formatDate } from '../utils/formatDate';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: ImageMetadata;
+  heroImageAlt?: string;
+  category: string;
+  slug: string;
+}
+
+const { title, description, pubDate, heroImage, heroImageAlt, category, slug } = Astro.props;
+---
+
+<article class="blog-card">
+  <a href={`/blog/${slug}`} class="card-link">
+    {heroImage && (
+      <div class="card-image">
+        <Image
+          src={heroImage}
+          alt={heroImageAlt || title}
+          width={800}
+          height={400}
+          class="image"
+        />
+      </div>
+    )}
+    <div class="card-content">
+      <div class="card-meta">
+        <CategoryBadge category={category} />
+        <time datetime={pubDate.toISOString()} class="date">
+          {formatDate(pubDate)}
+        </time>
+      </div>
+      <h2 class="card-title">{title}</h2>
+      <p class="card-description">{description}</p>
+    </div>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .blog-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-image {
+    margin-bottom: var(--spacing-md);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+  }
+
+  .card-link:hover .image {
+    opacity: 0.9;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .card-title {
+    margin: 0 0 var(--spacing-sm);
+    font-size: 1.25rem;
+    color: var(--color-text);
+    transition: color 0.2s ease;
+  }
+
+  .card-link:hover .card-title {
+    color: var(--color-accent);
+  }
+
+  .card-description {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+</style>

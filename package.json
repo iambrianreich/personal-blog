@@ -1,5 +1,5 @@
 {
-  "name": "absolute-ascension",
+  "name": "brianreich.dev",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,10 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.5",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.5.1",
-    "astro": "^5.13.7",
-    "sharp": "^0.34.3"
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.1",
+    "astro": "^5.16.9"
   }
 }
