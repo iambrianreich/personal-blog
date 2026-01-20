@@ -17,6 +17,7 @@ const blogCollection = defineCollection({
       'book-reviews',
       'agile-devops',
       'frontend',
+      'philosophy',
       'uncategorized',
     ]),
     draft: z.boolean().default(false),

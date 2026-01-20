@@ -15,6 +15,7 @@ export function getCategoryLabel(category: string): string {
     'agile-devops': 'Agile / DevOps',
     'frontend': 'Frontend',
     'uncategorized': 'Uncategorized',
+    'philosophy': 'Philosophy'
   };
   return labels[category] || category;
 }
