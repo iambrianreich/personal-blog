@@ -3,7 +3,7 @@ title: "Tidy First? by Kent Beck"
 description: "A review of Kent Beck's \"Tidy First?\" - a practical guide to making code changes easier through incremental tidying."
 pubDate: 2023-11-29
 category: "book-reviews"
-heroImage: "../../assets/images/blog/tidy-first-by-kent-beck/DALL·E-2023-11-29-15.09.13-A-digital-artwork-similar-to-the-previous-image-referencing-image-ID_-FciP44AVmeofrUwY-but-without-the-title-text.-The-image-depicts-a-modern-well.png"
+heroImage: "../../assets/images/blog/tidy-first-by-kent-beck/hero.png"
 heroImageAlt: "Tidy First? by Kent Beck"
 draft: false
 ---

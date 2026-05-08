@@ -3,7 +3,7 @@ title: "Phishing for Cows"
 description: "A personal story about almost falling for a phishing attack, and lessons about security awareness."
 pubDate: 2024-01-05
 category: "security"
-heroImage: "../../assets/images/blog/phishing-for-cows/DALL·E-2024-01-05-14.08.15-A-mythical-creature-blending-a-Scottish-Highland-cow-and-a-mermaid-in-a-wide-16_9-aspect-ratio.-The-creature-has-the-upper-body-of-a-Highland-cow-inc.png"
+heroImage: "../../assets/images/blog/phishing-for-cows/hero.png"
 heroImageAlt: "Phishing for Cows"
 draft: false
 ---
@@ -114,7 +114,7 @@ My lizard brain is now on high alert. It is trying to balance what I now know to
 
 _But dang them cows are cute, aren’t they?_ **So [cognitive dissonance](https://www.psycom.net/cognitive-dissonance) it is, then!** 
 
-![A scottish highland cow using a computer and realizing he's the victim of phishing.](../../assets/images/blog/phishing-for-cows/DALL·E-2024-01-05-14.38.59-A-Scottish-Highland-cow-sitting-at-a-computer-with-a-very-mischievous-and-cunning-expression.-This-cow-featuring-long-shaggy-reddish-brown-fur-and.png)
+![A scottish highland cow using a computer and realizing he's the victim of phishing.](../../assets/images/blog/phishing-for-cows/cow-at-computer.png)
 
 ## Acceptance 
 

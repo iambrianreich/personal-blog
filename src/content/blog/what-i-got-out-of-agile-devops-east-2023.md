@@ -3,7 +3,7 @@ title: "What I Got Out of Agile + DevOps East 2023"
 description: "Key takeaways and insights from attending Agile + DevOps East 2023 conference."
 pubDate: 2023-11-22
 category: "agile-devops"
-heroImage: "../../assets/images/blog/what-i-got-out-of-agile-devops-east-2023/DALL·E-2023-11-22-09.57.06-A-metaphorical-representation-of-the-fusion-of-agile-software-development-and-AI-in-a-16_9-aspect-ratio.-Central-focus-on-a-humanoid-figure-composed-o.png"
+heroImage: "../../assets/images/blog/what-i-got-out-of-agile-devops-east-2023/hero.png"
 heroImageAlt: "What I Got Out of Agile + DevOps East 2023"
 draft: false
 ---
